@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Hotspot Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Join screen -->
+  <div id="join-screen" class="screen">
+    <div class="join-box">
+      <h1>📶 Hotspot Chat</h1>
+      <p class="sub">ইন্টারনেট বা ডেটা ছাড়াই, শুধু হটস্পট দিয়ে চ্যাট</p>
+      <input id="username-input" type="text" placeholder="আপনার নাম লিখুন" maxlength="24" autofocus>
+      <button id="join-btn">ঢুকুন</button>
+      <p id="join-error" class="error"></p>
+    </div>
+  </div>
+
+  <!-- Main chat app -->
+  <div id="app-screen" class="screen hidden">
+    <div class="app">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <span id="me-name"></span>
+        </div>
+        <div class="chat-list">
+          <div class="chat-item active" data-id="group" data-name="গ্রুপ">
+            <div class="avatar group-avatar">👥</div>
+            <div class="chat-item-info">
+              <div class="chat-item-name">গ্রুপ চ্যাট (সবাই)</div>
+            </div>
+          </div>
+          <div id="user-list"></div>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="main-header">
+          <span id="current-chat-name">গ্রুপ চ্যাট (সবাই)</span>
+          <span id="typing-indicator"></span>
+        </div>
+        <div id="messages" class="messages"></div>
+        <div class="composer">
+          <label class="img-btn" title="ছবি পাঠান">
+            📷
+            <input type="file" id="image-input" accept="image/*" hidden>
+          </label>
+          <input id="text-input" type="text" placeholder="মেসেজ লিখুন..." autocomplete="off">
+          <button id="send-btn">পাঠান</button>
+        </div>
+        <div id="image-preview" class="image-preview hidden">
+          <img id="preview-img" src="">
+          <button id="cancel-image">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
